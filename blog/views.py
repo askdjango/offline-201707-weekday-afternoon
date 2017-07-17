@@ -16,3 +16,7 @@ def post_list(request):
         'query': query,
     })
 
+
+def post_detail(request, pk):
+    post = Post.objects.get(pk=pk)
+
