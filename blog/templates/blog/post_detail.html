@@ -1,23 +1,14 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>AskDjango 블로그</title>
-<style>
-body {
-    background-color: lightyellow;
-}
-</style>
-</head>
-<body>
+{% extends "blog/layout.html" %}
 
-<h1>{{ post.title }}</h1>
+{% block content %}
+    <h1>{{ post.title }}</h1>
 
-{{ post.content|linebreaks }}
+    {{ post.content|linebreaks }}
 
-<hr/>
+    <hr/>
 
-<a href="/blog/">목록</a>
+    <a href="/blog/">목록</a>
 
-</body>
-</html>
+    </body>
+    </html>
+{% endblock %}
