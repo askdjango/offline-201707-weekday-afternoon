@@ -17,6 +17,10 @@ def post_list(request):
     })
 
 
-def post_detail(request, pk):
-    post = Post.objects.get(pk=pk)
+def post_detail(request, pk): 
+    post = Post.objects.get(pk=pk)  # 이 코드는 설명을 위한 코드일 뿐, 비추코드 !!!
+    return render(request, 'blog/post_detail.html', {
+        'post': post,
+    })
+
 
