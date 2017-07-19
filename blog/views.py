@@ -46,3 +46,6 @@ def post_new(request):
         'form': form,
     })
 
+# from django.views.generic import CreateView
+# post_new = CreateView.as_view(model=Post, form_class=PostModelForm, success_url='/weblog/')
+
