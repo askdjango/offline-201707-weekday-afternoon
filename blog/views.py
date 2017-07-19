@@ -51,3 +51,22 @@ def post_new(request):
 # post_new = CreateView.as_view(model=Post, form_class=PostModelForm, success_url='/weblog/')
 # post_new = CreateView.as_view(model=Post, form_class=PostModelForm)
 
+
+def post_edit(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = PostModelForm(request.POST, instance=post)
+        if form.is_valid():
+            # form.cleaned_data  # dict타입
+            post = form.save()
+            return redirect(post)  # post.get_absolute_url() 주소로의 이동을 시도
+        # return redirect('blog:post_detail', post.id)
+    else:
+        # if request.method == 'GET':
+        form = PostModelForm(instance=post)
+
+    return render(request, 'blog/post_form.html', {
+        'form': form,
+    })
+
