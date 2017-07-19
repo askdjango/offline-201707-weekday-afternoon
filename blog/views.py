@@ -1,7 +1,8 @@
 import datetime
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.db.models import Q
 from .models import Post
+from .forms import PostModelForm
 
 
 def post_list(request):
@@ -29,4 +30,19 @@ def post_detail(request, pk):
         'post': post,
     })
 
+
+def post_new(request):
+    if request.method == 'POST':
+        form = PostModelForm(request.POST)
+        if form.is_valid():
+            # form.cleaned_data  # dict타입
+            post = form.save()
+            return redirect('blog:post_detail', post.id)
+    else:
+    # if request.method == 'GET':
+        form = PostModelForm()
+
+    return render(request, 'blog/post_form.html', {
+        'form': form,
+    })
 
