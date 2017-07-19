@@ -70,3 +70,6 @@ def post_edit(request, pk):
         'form': form,
     })
 
+# from django.views.generic import UpdateView
+# post_edit = UpdateView.as_view(model=Post, form_class=PostModelForm)
+
