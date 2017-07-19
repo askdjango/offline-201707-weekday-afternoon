@@ -37,7 +37,8 @@ def post_new(request):
         if form.is_valid():
             # form.cleaned_data  # dict타입
             post = form.save()
-            return redirect('blog:post_detail', post.id)
+            return redirect(post)  # post.get_absolute_url() 주소로의 이동을 시도
+            # return redirect('blog:post_detail', post.id)
     else:
     # if request.method == 'GET':
         form = PostModelForm()
@@ -48,4 +49,5 @@ def post_new(request):
 
 # from django.views.generic import CreateView
 # post_new = CreateView.as_view(model=Post, form_class=PostModelForm, success_url='/weblog/')
+# post_new = CreateView.as_view(model=Post, form_class=PostModelForm)
 
