@@ -12,6 +12,7 @@ class Post(models.Model):
     author = models.CharField(max_length=20, help_text='포스팅 작성자 이름을 입력해주세요.')
     title = models.CharField(max_length=100, validators=[min_length_3])
     content = models.TextField()
+    photo = models.ImageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
