@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load bootstrap3 static %}
 
 <!doctype html>
 <html>
@@ -13,6 +13,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>AskDjango</h1>
+
+<img src="{% static "blog/askdjango-logo.jpg" %}" style="max-width: 100%;"/>
+
+{% comment %}
+<script src=""></script>
+<link rel="stylesheet" href="" />
+<a href=""></a>
+{% endcomment %}
 
                 <p>안녕하세요. 여러분의 파이썬/장고 페이스메이커가 되겠습니다. ;)</p>
 
