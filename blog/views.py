@@ -1,4 +1,5 @@
 import datetime
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from .models import Post
@@ -26,6 +27,7 @@ def post_detail(request, pk):
     })
 
 
+@login_required
 def post_new(request):
     if request.method == 'POST':
         form = PostModelForm(request.POST, request.FILES)
@@ -47,6 +49,7 @@ def post_new(request):
 # post_new = CreateView.as_view(model=Post, form_class=PostModelForm)
 
 
+@login_required
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)
 
