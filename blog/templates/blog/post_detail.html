@@ -1,16 +1,22 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
-    <h1>{{ post.title }}</h1>
 
-    {% if post.photo %}
-        <img src="{{ post.photo.url }}" style="width: 100px;"/>
-    {% endif %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>{{ post.title }}</h4>
+        </div>
+        <div class="panel-body">
+            {% if post.photo %}
+            <img src="{{ post.photo.url }}" style="width: 100px;"/>
+            {% endif %}
 
-    {{ post.content|linebreaks }}
+            {{ post.content|linebreaks }}
+        </div>
+        <div class="panel-footer">
+            <a href="{% url "blog:post_list" %}" class="btn btn-primary">목록</a>
+            <a href="{% url "blog:post_edit" post.id %}" class="btn btn-primary">수정</a>
+        </div>
+    </div>
 
-    <hr/>
-
-    <a href="{% url "blog:post_list" %}">목록</a>
-    <a href="{% url "blog:post_edit" post.id %}">수정</a>
 {% endblock %}
