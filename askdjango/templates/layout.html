@@ -5,6 +5,7 @@
 <meta charset="utf-8" />
 <title>AskDjango 블로그</title>
 {% bootstrap_css %}
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 {% bootstrap_javascript %}
 {% block extra_head %}{% endblock %}
 </head>
@@ -29,6 +30,13 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             {% block extra_navbar %}{% endblock %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="">로그인</a></li>
+              <li><a href="">회원가입</a></li>
+
+              <li><a href="">프로필</a></li>
+              <li><a href="">로그아웃</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
