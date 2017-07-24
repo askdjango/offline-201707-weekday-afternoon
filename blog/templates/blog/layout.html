@@ -1,35 +1,9 @@
-{% load bootstrap3 static %}
+{% extends "layout.html" %}
 
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>AskDjango 블로그</title>
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>AskDjango</h1>
+{% block brand %}
+    <a class="navbar-brand" href="{% url "blog:post_list" %}">Ask Django 블로그</a>
+{% endblock %}
 
-<img src="{% static "blog/askdjango-logo.jpg" %}" style="max-width: 100%;"/>
-
-{% comment %}
-<script src=""></script>
-<link rel="stylesheet" href="" />
-<a href=""></a>
-{% endcomment %}
-
-                <p>안녕하세요. 여러분의 파이썬/장고 페이스메이커가 되겠습니다. ;)</p>
-
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
-
+{% block extra_navbar %}
+    <li><a href="{% url "blog:post_new" %}">New Post</a></li>
+{% endblock %}

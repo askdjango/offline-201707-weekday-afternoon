@@ -13,14 +13,9 @@ def post_list(request):
         condition = Q(title__icontains=query) | Q(content__icontains=query)
         qs = qs.filter(condition)
 
-    date_list = []
-    for i in range(366):
-        date_list.append(datetime.datetime(2017, 1, 1) + datetime.timedelta(days=i))
-
     return render(request, 'blog/post_list.html', {
         'post_list': qs,
         'query': query,
-        'date_list': date_list,
     })
 
 
