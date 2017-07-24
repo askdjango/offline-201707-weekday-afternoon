@@ -32,11 +32,13 @@
             {% block extra_navbar %}{% endblock %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li><a href="">로그인</a></li>
-              <li><a href="">회원가입</a></li>
-
-              <li><a href="">프로필</a></li>
-              <li><a href="">로그아웃</a></li>
+              {% if not user.is_authenticated %}
+                  <li><a href="{% url "login" %}">로그인</a></li>
+                  <li><a href="{% url "signup" %}">회원가입</a></li>
+              {% else %}
+                  <li><a href="{% url "profile" %}">프로필</a></li>
+                  <li><a href="">로그아웃</a></li>
+              {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
