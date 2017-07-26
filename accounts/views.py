@@ -1,7 +1,8 @@
 from django.conf import settings
+from django.contrib.auth.views import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from .forms import SignupForm
+from .forms import SignupForm, LoginForm
 
 
 def signup(request):
@@ -15,6 +16,10 @@ def signup(request):
     return render(request, 'accounts/signup_form.html', {
         'form': form,
     })
+
+
+def login(request):
+    return auth_login(request, form_class=LoginForm)
 
 
 @login_required
