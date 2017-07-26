@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'debug_toolbar',
+    'storages',
     'accounts',
     'blog',
     'dojo',
@@ -131,8 +132,16 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'askdjango', 'static'),
 ]
 
+STATICFILES_STORAGE = 'askdjango.storages.StaticS3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'askdjango.storages.MediaS3Boto3Storage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = ['127.0.0.1']
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = 'askdjango-allieus'
+AWS_S3_REGION_NAME = 'ap-northeast-2'
 
