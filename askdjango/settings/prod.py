@@ -7,17 +7,15 @@ INSTALLED_APPS += ['storages']
 import pymysql
 pymysql.install_as_MySQLdb()
 
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'HOST': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': os.environ['DB_NAME'],
+        'HOST': os.environ['DB_HOST'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
     }
 }
-'''
 
 STATICFILES_STORAGE = 'askdjango.storages.StaticS3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'askdjango.storages.MediaS3Boto3Storage'
