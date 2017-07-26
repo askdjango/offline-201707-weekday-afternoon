@@ -3,6 +3,8 @@
 {% block content %}
     <h1>{{ user }}</h1>
 
+    <img src="{{ user.socialaccount_set.all.first.get_avatar_url }}" />
+
     {{ user.email }}
     {{ user.date_joined }}
 {% endblock %}
