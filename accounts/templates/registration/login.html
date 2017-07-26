@@ -1,11 +1,29 @@
 {% extends "accounts/layout.html" %}
-{% load bootstrap3 %}
+{% load bootstrap3 socialaccount %}
 
 {% block content %}
+
+<hr/>
+
+{% for provider in provider_list %}
+    {% if provider.social_app %}
+        <a href="{% provider_login_url provider.id %}" class="btn btn-primary">
+            {{ provider.name }} 로그인
+        </a>
+    {% else %}
+    <a href="" class="btn btn-primary disabled">
+        {{ provider.name }} 로그인
+    </a>
+    {% endif %}
+{% endfor %}
+
+<hr/>
+
 <form action="" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
     <input type="submit" class="btn btn-primary btn-block" />
 </form>
+<hr/>
 {% endblock %}
 
