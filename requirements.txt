@@ -1,0 +1,7 @@
+django
+django-bootstrap3
+django-storages
+PyMySQL
+boto3
+Pillow
+django-allauth
