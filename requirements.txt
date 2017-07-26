@@ -1,4 +1,5 @@
 django
+django-debug-toolbar
 django-bootstrap3
 django-storages
 PyMySQL
